@@ -16,7 +16,6 @@ case "$Clue" in
     ./node_modules/.bin/gulp
     php app/console doctrine:database:create
     php app/console doctrine:schema:update --force
-    php app/console doctrine:fixtures:load --append --purge-with-truncate
 ;;
 
 4) exit 0
