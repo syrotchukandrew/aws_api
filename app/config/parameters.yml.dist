@@ -17,3 +17,9 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    aws_version: '2006-03-01'
+    aws_region: 'eu-west-1'
+    aws_key: ~
+    aws_secret: ~
+    aws_bucket: 'for-test-task'
