@@ -23,11 +23,12 @@ class ApiController extends FOSRestController
             ->getDoctrine()
             ->getRepository('AppBundle:Picture')
             ->findAll();
+
         return $pictures;
     }
 
     /**
-     * it generates so the route GET .../pictures/{id}
+     * it generates so the route GET api/pictures/{id}
      *
      * @return Picture
      */
@@ -64,6 +65,7 @@ class ApiController extends FOSRestController
             );
         }
         $this->persistAndFlush($picture);
+
         return "";
     }
     /**
@@ -71,7 +73,6 @@ class ApiController extends FOSRestController
      */
     private function treatAndValidateRequest(Picture $picture, Request $request)
     {
-        // createForm is provided by the parent class
         $form = $this->createForm(
             new PictureType(),
             $picture,
@@ -81,6 +82,7 @@ class ApiController extends FOSRestController
         );
         $form->handleRequest($request);
         $errors = $this->get('validator')->validate($picture);
+
         return $errors;
     }
     private function persistAndFlush(Picture $picture)
