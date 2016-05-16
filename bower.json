@@ -1,0 +1,20 @@
+{
+  "name": "aws_api",
+  "description": "aws_api =======",
+  "main": "index.js",
+  "authors": [
+    "Syrotchuk Andrew"
+  ],
+  "license": "BSD-2-Clause",
+  "homepage": "https://github.com/syrotchukandrew/aws_api",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}

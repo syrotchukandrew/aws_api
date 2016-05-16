@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/syrotchukandrew/aws-api"
+    "url": "https://github.com/syrotchukandrew/aws_api"
   },
   "author": "Syrotchuk Andrew",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/syrotchukandrew/aws-api/issues"
+    "url": "https://github.com/syrotchukandrew/aws_api/issues"
   },
   "dependencies": {
     "pgwslideshow": "~2.0.0",
