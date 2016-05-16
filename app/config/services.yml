@@ -1,0 +1,28 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+    aws.s3.manager:
+        class: AppBundle\AwsManager\AwsS3Manager
+        arguments:
+             region: "%aws_region%"
+             version: "%aws_version%"
+             key: "%aws_key%"
+             secret: "%aws_secret%"
+             bucket: "%aws_bucket%"
+    app.file.manager:
+        class: AppBundle\FileManager\FileManager
+        arguments:
+            root_dir: "%kernel.root_dir%"
+            aws: "@aws.s3.manager"
+    app.image_subscriber:
+        class: AppBundle\EventListener\ImageEventSubscriber
+        tags:
+            - { name: doctrine.event_subscriber }
+

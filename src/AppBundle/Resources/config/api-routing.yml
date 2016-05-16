@@ -1,0 +1,4 @@
+aws_api_articles:
+    type: rest
+    resource: "@AppBundle/Controller/ApiController.php"
+    name_prefix:  api_pictures_

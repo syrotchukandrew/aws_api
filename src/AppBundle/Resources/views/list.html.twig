@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="row well">
+            <div class="col col-sm-6 well">
+                <h1>Images that have been uploaded</h1>
+            </div>
+            <div class="col col-sm-6 well">
+                {% if not app.user %}
+                    {{ render(controller('AppBundle:Security:login')) }}
+                {% else %}
+                    Hello, {{ app.user|upper }}<br><a href="{{ path('logout') }}">Logout</a>
+                {% endif %}
+            </div>
+        </div>
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="row well">
+                {{ form(form) }}
+            </div>
+        {% endif %}
+        <div class="row well">
+            <div class="col col-sm-6 well">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>UploadedAt</th>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <th>Delete</th>
+                        {% endif %}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for object in pagination %}
+                        <tr>
+                            <td>{{ object.Key }}</td>
+                            <td>{{ object.LastModified|date('Y-m-d h:i:s') }}</td>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <td>
+                                    <a href="{{ path('object_show', { 'key': object.Key }) }}"
+                                       class="btn btn-sm btn-default">
+                                        Delete </a>
+                                </td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col col-sm-6 well">
+                <ul class="pgwSlideshow">
+                    {% for p in pagination %}
+                        <li><img alt="{{ p.Key }}" src="{{ asset(p.Key)|imagine_filter('small') }} ">
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    </div>
+{% endblock body %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('js/pgwslideshow.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.pgwSlideshow').pgwSlideshow();
+        });
+    </script>
+{% endblock javascripts %}

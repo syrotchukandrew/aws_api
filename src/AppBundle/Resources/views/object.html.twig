@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="row well">
+            <h4>Do you want to delete object with key "{{ key }}"</h4>
+            {{ include('@App/_form.html.twig', {
+                form: form,
+                button_label: 'Delete',
+                button_css: 'btn btn-danger',
+                show_confirmation: true,
+            }, with_context = false) }}
+        </div>
+    </div>
+{% endblock body %}

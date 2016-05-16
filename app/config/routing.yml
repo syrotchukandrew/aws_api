@@ -1,0 +1,14 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+
+aws_api:
+    type:     rest
+    prefix:   /api
+    resource: "@AppBundle/Resources/config/api-routing.yml"
+
+logout:
+    path: /logout
+

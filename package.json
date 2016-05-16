@@ -1,0 +1,28 @@
+{
+  "name": "aws_api",
+  "version": "0.0.0",
+  "description": "aws_api =======",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syrotchukandrew/aws-api"
+  },
+  "author": "Syrotchuk Andrew",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/syrotchukandrew/aws-api/issues"
+  },
+  "dependencies": {
+    "pgwslideshow": "~2.0.0",
+    "gulp": "~3.9.1",
+    "gulp-clean": "~0.3.2",
+    "gulp-concat": "~2.6.0",
+    "gulp-uglify": "~1.5.3",
+    "less": "~2.7.1",
+    "bower": "~1.7.9",
+    "gulp-less": "~3.1.0"
+  }
+}
